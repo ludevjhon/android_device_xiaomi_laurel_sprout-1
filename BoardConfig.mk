@@ -27,9 +27,6 @@ TARGET_USES_64_BIT_BINDER := true
 
 BUILD_BROKEN_DUP_RULES := true
 
-MSMSTEPPE := trinket
-TARGET_SEPOLICY_DIR := trinket
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := trinket
 TARGET_NO_BOOTLOADER := true
@@ -134,6 +131,9 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
+# LMKD
+TARGET_LMKD_STATS_LOG := true
+
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
 
@@ -182,6 +182,7 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 VENDOR_SECURITY_PATCH := 2020-05-05
 
 # Sepolicy
+TARGET_SEPOLICY_DIR := trinket
 #include device/qcom/sepolicy/sepolicy.mk
 
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
