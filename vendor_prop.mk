@@ -115,6 +115,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.dpm.nsrm.bkg.evt=3955 \
     ro.vendor.use_data_netmgrd=true
 
+# Crypto
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Ccodec
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=1 \
@@ -181,13 +186,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
     media.stagefright.enable-aac=true \
     media.stagefright.enable-fma2dp=true \
     media.stagefright.enable-http=true \
     media.stagefright.enable-player=true \
     media.stagefright.enable-qcp=true \
     media.stagefright.enable-scan=true \
-    persist.mm.enable.prefetch=true
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    mm.enable.smoothstreaming=true \
+    mmp.enable.3g2=true \
+    persist.mm.enable.prefetch=true \
+    vendor.mm.enable.qcom_parser=131071999
 
 # PASR
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -204,6 +214,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
+    DEVICE_PROVISIONED=1 \
     persist.radio.multisim.config=dsds \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.atfwd.start=true \
@@ -216,9 +227,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.redir_party_num=1 \
     persist.vendor.radio.report_codec=1 \
     persist.vendor.radio.sib16_support=1 \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=22,22 \
+    ril.subscription.types=RUIM \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ro.telephony.default_network=9,9 \
     telephony.lteOnCdmaDevice=1
+
+# Time
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
 
 # VoLTE/VoWifi
 PRODUCT_PROPERTY_OVERRIDES += \
